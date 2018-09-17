@@ -57,10 +57,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          { loader: 'style-loader', options: { sourceMap: true } },
-          { loader: 'css-loader' }
-        ]
+        use: [{ loader: 'style-loader', options: { sourceMap: true } }, { loader: 'css-loader' }]
       },
       {
         test: /\.js$/,
