@@ -12,7 +12,8 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   devServer: {
-    contentBase: './dist',
+    contentBase: './src/',
+    watchContentBase: true,
     hot: true
   },
   plugins: [
@@ -27,7 +28,7 @@ module.exports = {
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/index.html',
+      template: './src/index.html',
       minify: {
         html5: true,
         collapseWhitespace: true,
