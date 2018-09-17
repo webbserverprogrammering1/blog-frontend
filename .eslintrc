@@ -1,7 +1,7 @@
 {
     "extends": [
       "airbnb",
-      "prettier",
+      "prettier"
       ],
     "plugins": [
       "prettier"
@@ -9,12 +9,14 @@
     "rules": {
           "prettier/prettier": "error",
           "no-param-reassign": ["error", { "props": false }],
-          "linebreak-style": 0
+          "linebreak-style": 0,
+          "no-plusplus": 0,
+          "no-console": 0
       },
     "env":{
       "browser": true,
       "node": true,
-      "jest": true,
+      "jest": true
       },
       "parser": "babel-eslint"
   }
