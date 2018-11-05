@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-  entry: './src/js/index.js',
+  entry: ['@babel/polyfill', './src/js/index.js'],
   output: {
     filename: 'build.js',
     path: path.resolve(__dirname, 'dist')
