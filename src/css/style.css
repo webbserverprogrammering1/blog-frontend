@@ -1,0 +1,13 @@
+
+/* Elements */
+
+p, a, h1, h2, h3, h4, h5, h6 {
+  color: #7c7c7a;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Classes */
+
+.text-center {
+  text-align: center;
+}
