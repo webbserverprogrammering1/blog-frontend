@@ -2,6 +2,14 @@
 import style from '../css/style.css';
 /* eslint-enable no-unused-vars */
 const root = document.getElementById('blog');
+
+const renderError = error => {
+  const html = `
+    <h2 class="error text-center">Error: ${error}</h2>
+  `;
+  root.innerHTML = html;
+};
+
 const setPageTitle = (title = 'The awesome blogger blog!') => {
   const titleEl = document.getElementById('title');
   titleEl.textContent = title;
