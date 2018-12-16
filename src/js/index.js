@@ -13,3 +13,4 @@ const loadBlogPosts = async () => {
     renderError('Webbservern finns inte tillgänglig på angiven port!');
   }
 };
+loadBlogPosts();
