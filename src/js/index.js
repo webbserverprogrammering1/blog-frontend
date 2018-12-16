@@ -2,6 +2,11 @@
 import style from '../css/style.css';
 /* eslint-enable no-unused-vars */
 const root = document.getElementById('blog');
+const setPageTitle = (title = 'The awesome blogger blog!') => {
+  const titleEl = document.getElementById('title');
+  titleEl.textContent = title;
+};
+
 const createPost = async ({ title, name, content }) => {
   const data = {
     title,
