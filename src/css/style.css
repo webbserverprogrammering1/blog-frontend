@@ -1,13 +1,68 @@
 
-/* Elements */
-
-p, a, h1, h2, h3, h4, h5, h6 {
+p, h1, h2, h3, h4, h5, h6 {
   color: #7c7c7a;
   font-family: 'Poppins', sans-serif;
 }
 
-/* Classes */
+a {
+  text-decoration: none;
+  color: #0960e8;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input, textarea {
+  display: block;
+}
 
 .text-center {
   text-align: center;
+}
+
+.error {
+  color: #E92329;
+}
+
+#blog article, #blog header, #blog content {
+  box-shadow: 0px 0px 40px -5px rgba(0, 0, 0, 0.11);
+  width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.clearfix::after { 
+  content: " ";
+  display: block; 
+  height: 0; 
+  clear: both;
+}
+
+
+span.primary {
+  color: #0960e8;
+}
+
+button.primary {
+  background: #0960e8;
+  border: none;
+  color: white;
+  height: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+button.primary:hover {
+  background: rgba(9,96,232,0.8);
+  transition: background 0.3s ease-in-out;
+}
+
+#blog input, #blog textarea {
+  width: 100%;
+  margin: 10px 0;
+}
+
+#blog textarea {
+  height: 400px;
 }
