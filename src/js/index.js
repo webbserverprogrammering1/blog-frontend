@@ -1,6 +1,30 @@
 /* eslint-disable no-unused-vars */
 import style from '../css/style.css';
 /* eslint-enable no-unused-vars */
+const createPost = async ({ title, name, content }) => {
+  const data = {
+    title,
+    name,
+    content
+  };
+
+  const json = JSON.stringify(data);
+  const options = {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: json
+  };
+  const response = await fetch('http://localhost:8000/posts', options);
+  if (response.status === 404) {
+    document.getElementsByClassName('error')[0].textContent = 'Fanns ingen route att skicka till!';
+  } else {
+    setPageTitle();
+    loadBlogPosts();
+  }
+};
+
 const renderForm = () => {
   setPageTitle('Skapa ny Post!');
   const html = `
