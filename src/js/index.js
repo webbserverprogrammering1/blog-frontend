@@ -1,6 +1,35 @@
 /* eslint-disable no-unused-vars */
 import style from '../css/style.css';
 /* eslint-enable no-unused-vars */
+const renderBlogPosts = posts => {
+  posts = posts.sort((a, b) => (a > b ? 0 : -1));
+  let html = `
+    <header>
+      <button id="new" class="primary">Skapa ny post</button>
+    </header>
+  `;
+
+  posts.forEach(post => {
+    html += `
+    <article>
+      <h2>${post.title}</h2>
+      <p>Skriven av: <span class="primary">${post.writtenBy}</span></p>
+      <p>${post.excerpt}.. <a class="readmore" data-id="${post.id}" href="#">läs mer!</a></p>
+      <p class="error error${post.id}"></p>
+    </article>
+    `;
+  });
+  root.innerHTML = html;
+
+  document.getElementById('new').addEventListener('click', renderForm);
+
+  const nodes = document.getElementsByClassName('readmore');
+  const articles = Array.from(nodes);
+  articles.forEach(article => {
+    article.addEventListener('click', renderBlogPost);
+  });
+};
+
 const loadBlogPosts = async () => {
   try {
     const response = await fetch('http://localhost:8000/posts');
