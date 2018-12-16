@@ -1,6 +1,48 @@
 /* eslint-disable no-unused-vars */
 import style from '../css/style.css';
 /* eslint-enable no-unused-vars */
+const renderForm = () => {
+  setPageTitle('Skapa ny Post!');
+  const html = `
+    <header>
+      <a class="back" href="#">&#x2190; Tillbaka</a>
+    </header>
+    <article> 
+      <label>Post Titel:</label>
+      <input id="titel"/>
+      <label>Skriven av:</label>
+      <input id="name" />
+      <label>Innehåll:</label>
+      <textarea id="content" ></textarea>
+      <button id="create" class="primary">Skapa</button>
+      <p class="error"></p>
+    </article>
+  `;
+  root.innerHTML = html;
+  document.getElementsByClassName('back')[0].addEventListener('click', () => {
+    setPageTitle();
+    loadBlogPosts();
+  });
+  document.getElementById('create').addEventListener('click', event => {
+    event.preventDefault();
+    const isFilled =
+      document.getElementById('name').value &&
+      document.getElementById('titel').value &&
+      document.getElementById('content').value;
+
+    if (!isFilled) {
+      document.getElementsByClassName('error')[0].textContent = 'Alla fält måste vara ifyllda';
+    } else {
+      const data = {
+        title: document.getElementById('titel').value,
+        name: document.getElementById('name').value,
+        content: document.getElementById('content').value
+      };
+      createPost(data);
+    }
+  });
+};
+
 const renderBlogPosts = posts => {
   posts = posts.sort((a, b) => (a > b ? 0 : -1));
   let html = `
