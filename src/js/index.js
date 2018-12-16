@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import style from '../css/style.css';
 /* eslint-enable no-unused-vars */
+const root = document.getElementById('blog');
 const createPost = async ({ title, name, content }) => {
   const data = {
     title,
