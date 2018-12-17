@@ -115,9 +115,10 @@ const loadBlogPosts = async () => {
     const response = await fetch('http://localhost:8000/posts');
     if (response.status === 404) {
       renderError('Kunde inte hitta några bloggposter!');
+    } else {
+      const json = await response.json();
+      renderBlogPosts(json);
     }
-    const json = await response.json();
-    renderBlogPosts(json);
   } catch (e) {
     renderError('Webbservern finns inte tillgänglig på angiven port!');
   }
